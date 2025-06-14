@@ -26,7 +26,6 @@ logger.error = (msg, options) => {
 };
 
 export default defineConfig({
-	base: '/InCashMain/',   // <== 🔥 This is what makes it work in GitHub Pages
 	customLogger: logger,
 	plugins: [
 		...(isDev ? [inlineEditPlugin(), editModeDevPlugin()] : []),

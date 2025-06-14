@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <div className="bg-gradient-to-br from-gray-50 to-green-50">
       <HeroSection />
-      <PricingSection displayTitle={false} showNoHiddenFeesBadge={false} />
+      <PricingSection displayTitle={false} showNoHiddenFeesBadge={true} />
       <WhatWeOfferSection />
       <HowItWorksSection />
       <ReviewsSection />

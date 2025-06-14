@@ -19,6 +19,8 @@ const RegisterPage = () => {
     });
   };
 
+  const logoUrl = "https://storage.googleapis.com/hostinger-horizons-assets-prod/3617ea5a-eae1-45eb-99f3-be8cf107e035/eaf51401e2e4157b5a48dfe673a32850.png";
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-green-100 py-12 px-4 sm:px-6 lg:px-8">
       <motion.div
@@ -29,9 +31,7 @@ const RegisterPage = () => {
       >
         <div>
           <Link to="/" className="flex justify-center mb-6">
-             <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
-                <DollarSign className="w-7 h-7 text-white" />
-              </div>
+            <img src={logoUrl} alt="InCashy Logo" className="w-8 h-8 rounded-lg object-contain" />
           </Link>
           <h1 className="text-center text-3xl font-extrabold text-gray-900">
             Create your InCashy Account
