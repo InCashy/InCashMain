@@ -13,7 +13,7 @@ const SignInPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-       window.location.href = 'https://app.incash.com';
+       window.location.href = 'https://app.incashy.com';
   };
 
   return (
