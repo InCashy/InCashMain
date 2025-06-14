@@ -13,10 +13,7 @@ const SignInPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    toast({
-      title: "🚧 Sign In Not Implemented",
-      description: "This is a demo. Actual sign-in functionality will be added soon! 🚀",
-    });
+       window.location.href = 'https://app.incash.com';
   };
 
   return (
