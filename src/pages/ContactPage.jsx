@@ -25,29 +25,34 @@ const ContactPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+try {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbx_apHV_-TxIlQjsHPGqfRRsV9rXnxUuDthl9YaQgxuyxpEk66tcDZD52LCJRdZ6Qh9/exec', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const result = await response.json();
 
-      // Save to localStorage
-      const submissions = JSON.parse(localStorage.getItem('contactSubmissions')) || [];
-      submissions.push({ ...formData, submittedAt: new Date().toISOString() });
-      localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
-
+    if (result.result === 'success') {
       toast({
-        title: "Message Sent! 🎉",
-        description: "Thanks for reaching out. We've received your message and will get back to you soon.",
+        title: 'Message Sent! 🎉',
+        description: 'Thanks for reaching out! Your message is safely in our sheets.',
       });
-      setFormData({ name: '', email: '', subject: '', message: '' }); // Reset form
-    } catch (error) {
-      toast({
-        variant: "destructive",
-        title: "Uh oh! Something went wrong.",
-        description: "There was a problem sending your message. Please try again.",
-      });
-    } finally {
-      setIsSubmitting(false);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } else {
+      throw new Error(result.error || 'Failed to send');
     }
+  } catch (error) {
+    toast({
+      variant: 'destructive',
+      title: 'Uh oh! Something went wrong.',
+      description: error.message || 'Try again later.',
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
   };
 
   return (
@@ -63,7 +68,7 @@ const ContactPage = () => {
             Get in Touch
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            We're here to help and answer any question you might have. We look forward to hearing from you!
+            We're are a startup, this product is still in development. If you have any questions, feedback, or just want to say hello, feel free to reach out to us using the form below.
           </p>
         </div>
 
@@ -77,7 +82,7 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <p className="text-lg font-medium text-gray-700">Email Us</p>
-                  <a href="mailto:support@incashy.com" className="text-green-600 hover:text-green-700 transition-colors">support@incashy.com</a>
+                  <a href="mailto:support@incashy.com" className="text-green-600 hover:text-green-700 transition-colors">angeldomlu@gmail.com</a>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -86,7 +91,7 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <p className="text-lg font-medium text-gray-700">Call Us</p>
-                  <a href="tel:+1234567890" className="text-green-600 hover:text-green-700 transition-colors">+1 (234) 567-890</a>
+                  <a href="tel:+1234567890" className="text-green-600 hover:text-green-700 transition-colors">No Phone Available</a>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
