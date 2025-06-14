@@ -26,7 +26,7 @@ const ContactPage = () => {
     setIsSubmitting(true);
 
 try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbx_apHV_-TxIlQjsHPGqfRRsV9rXnxUuDthl9YaQgxuyxpEk66tcDZD52LCJRdZ6Qh9/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbwU7cBRptnSNZqKByij_DQkI86JDEg5uHyhDWmSne4DQ3FR0RVuz4RyMQtf6huJECLt/exec', {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: {
