@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const ContactPage = () => {
   const { toast } = useToast();
+
   const [formData, setFormData] = React.useState({
     name: '',
     email: '',
@@ -15,6 +17,11 @@ const ContactPage = () => {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+
+  // ✅ INIT emailjs once when component mounts
+  useEffect(() => {
+    emailjs.init('zEYJuyKXun7c-AHgC'); // <-- this is your public key
+  }, []);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -25,34 +32,35 @@ const ContactPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbwU7cBRptnSNZqKByij_DQkI86JDEg5uHyhDWmSne4DQ3FR0RVuz4RyMQtf6huJECLt/exec', {
-      method: 'POST',
-      body: JSON.stringify(formData),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const result = await response.json();
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+    };
 
-    if (result.result === 'success') {
+    try {
+      const result = await emailjs.send(
+        'service_xbkkvv9',      // ✅ your service ID
+        'template_lq99jih',     // ✅ your template ID
+        templateParams
+      );
+
       toast({
         title: 'Message Sent! 🎉',
-        description: 'Thanks for reaching out! Your message is safely in our sheets.',
+        description: 'Thanks for reaching out! Your message was sent successfully.',
       });
+
       setFormData({ name: '', email: '', subject: '', message: '' });
-    } else {
-      throw new Error(result.error || 'Failed to send');
+    } catch (error) {
+      toast({
+        variant: 'destructive',
+        title: 'Uh oh! Something went wrong.',
+        description: error.text || 'Try again later.',
+      });
+    } finally {
+      setIsSubmitting(false);
     }
-  } catch (error) {
-    toast({
-      variant: 'destructive',
-      title: 'Uh oh! Something went wrong.',
-      description: error.message || 'Try again later.',
-    });
-  } finally {
-    setIsSubmitting(false);
-  }
   };
 
   return (
@@ -68,7 +76,7 @@ try {
             Get in Touch
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            We're are a startup, this product is still in development. If you have any questions, feedback, or just want to say hello, feel free to reach out to us using the form below.
+            We're a startup, this product is still in development. If you have any questions, feedback, or just want to say hello, feel free to reach out to us using the form below.
           </p>
         </div>
 
@@ -133,8 +141,8 @@ try {
                 disabled={isSubmitting}
               ></textarea>
             </div>
-            <Button 
-              type="submit" 
+            <Button
+              type="submit"
               className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 py-3 text-base flex items-center justify-center"
               disabled={isSubmitting}
             >
