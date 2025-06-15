@@ -12,7 +12,7 @@ const StepCard = ({ icon, title, description, delay, isFinal = false }) => {
       transition={{ delay }}
       className="text-center"
     >
-      <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 ${isFinal ? 'bg-gradient-to-br from-green-500 to-green-600' : 'bg-gray-100'}`}>
+      <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 ${isFinal ? 'bg-gradient-to-br from-green-500 to-green-500' : 'bg-gray-100'}`}>
         <IconComponent className={`w-8 h-8 ${isFinal ? 'text-white' : 'text-gray-600'}`} />
       </div>
       <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>

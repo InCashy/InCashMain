@@ -42,7 +42,7 @@ const HeroSection = () => {
             </Link>
             <Link to="/register">
               <Button 
-                className="px-8 py-3 text-lg bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
+                className="px-8 py-3 text-lg bg-gradient-to-r from-green-500 to-green-500 hover:from-green-600 hover:to-green-600"
               >
                 Join now
               </Button>

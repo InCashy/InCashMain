@@ -12,7 +12,7 @@ const Header = () => {
     navigate(path);
     setMobileMenuOpen(false);
   };
-  
+
   const logoUrl = "https://storage.googleapis.com/hostinger-horizons-assets-prod/3617ea5a-eae1-45eb-99f3-be8cf107e035/eaf51401e2e4157b5a48dfe673a32850.png";
 
   return (
@@ -25,20 +25,18 @@ const Header = () => {
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">
+
+          </nav>
+
+          <div className="hidden md:flex items-center space-x-4">
             <Link to="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors">
               Pricing
             </Link>
             <Link to="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
               Contact
             </Link>
-          </nav>
-
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" onClick={() => handleNavigation('/signin')}>
-              Sign in
-            </Button>
-            <Button onClick={() => handleNavigation('/register')} className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700">
-              Register
+            <Button onClick={() => window.location.href = 'https://app.incashy.com'} className="justify-start bg-gradient-to-r from-green-500 to-green-500 hover:from-green-600 hover:to-green-600">
+              Log In
             </Button>
           </div>
 
@@ -51,7 +49,7 @@ const Header = () => {
         </div>
 
         {mobileMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             className="md:hidden py-4 border-t border-gray-200"
@@ -64,11 +62,8 @@ const Header = () => {
                 Contact
               </button>
               <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200">
-                <Button variant="ghost" onClick={() => handleNavigation('/signin')} className="justify-start">
-                  Sign in
-                </Button>
-                <Button onClick={() => handleNavigation('/register')} className="justify-start bg-gradient-to-r from-green-500 to-green-600">
-                  Register
+                <Button onClick={() => window.location.href = 'https://app.incashy.com'} className="justify-start bg-gradient-to-r bg-gradient-to-r from-green-500 to-green-500 hover:from-green-600 hover:to-green-600">
+                  Log In
                 </Button>
               </div>
             </div>

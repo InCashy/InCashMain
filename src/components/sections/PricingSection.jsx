@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import { Check } from 'lucide-react';
@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 
 const PricingCard = ({ plan, delay, isPro = false }) => {
   const { toast } = useToast();
+  const [hasAnimated, setHasAnimated] = useState(false);
+
   const showToast = () => {
     toast({
       title: "🚧 This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀"
@@ -16,9 +18,10 @@ const PricingCard = ({ plan, delay, isPro = false }) => {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
       transition={{ delay }}
+      onViewportEnter={() => setHasAnimated(true)}
+      style={{ willChange: 'transform, opacity' }}
       className={`pricing-card rounded-2xl p-8 border flex flex-col ${isPro ? 'bg-gray-900 border-gray-800 relative' : 'bg-white border-gray-200'}`}
     >
       <h3 className={`text-xl font-semibold mb-4 ${isPro ? 'text-white' : 'text-gray-900'}`}>{plan.name}</h3>
@@ -46,19 +49,24 @@ const PricingCard = ({ plan, delay, isPro = false }) => {
   );
 };
 
-const NoHiddenFeesBadge = () => (
-  <motion.div 
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    className="text-center mb-12"
-  >
-    <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 px-4 py-2 rounded-full">
-      <Check className="w-5 h-5" />
-      <span className="font-semibold">No Hidden Fees</span>
-    </div>
-  </motion.div>
-);
+const NoHiddenFeesBadge = () => {
+  const [hasAnimated, setHasAnimated] = useState(false);
+  
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }}
+      animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
+      onViewportEnter={() => setHasAnimated(true)}
+      style={{ willChange: 'transform, opacity' }}
+      className="text-center mb-12"
+    >
+      <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 px-4 py-2 rounded-full">
+        <Check className="w-5 h-5" />
+        <span className="font-semibold">No Hidden Fees</span>
+      </div>
+    </motion.div>
+  );
+};
 
 const PricingSection = ({ displayTitle = true, showNoHiddenFeesBadge = true }) => {
   const plans = [
@@ -80,15 +88,18 @@ const PricingSection = ({ displayTitle = true, showNoHiddenFeesBadge = true }) =
     }
   ];
 
+  const [hasAnimatedTitle, setHasAnimatedTitle] = useState(false);
+
   return (
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {displayTitle && (
-           <motion.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12" 
+            animate={hasAnimatedTitle ? { opacity: 1, y: 0 } : {}}
+            onViewportEnter={() => setHasAnimatedTitle(true)}
+            style={{ willChange: 'transform, opacity' }}
+            className="text-center mb-12"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Our Pricing Plans
