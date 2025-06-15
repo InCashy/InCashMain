@@ -143,7 +143,7 @@ const ContactPage = () => {
             </div>
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 py-3 text-base flex items-center justify-center"
+              className="w-full bg-gradient-to-r from-green-500 to-green-500 hover:from-green-600 hover:to-green-600 py-3 text-base flex items-center justify-center"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
