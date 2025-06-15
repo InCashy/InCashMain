@@ -40,8 +40,8 @@ const HeroSection = () => {
                 Learn more
               </Button>
             </Link>
-            <Link to="/register">
-              <Button 
+            <Link to="https://app.incashy.com">
+              <Button
                 className="px-8 py-3 text-lg bg-gradient-to-r from-green-500 to-green-500 hover:from-green-600 hover:to-green-600"
               >
                 Join now
