@@ -66,22 +66,33 @@ const ContactPage = () => {
 
   return (
     <div className="bg-gradient-to-br from-gray-50 to-green-50 py-16 md:py-24">
-        <Helmet>
+      <Helmet>
         <title>Contact</title>
         <meta
           name="description"
-          content="We're a startup and this product is still in development. If you have any questions or feedback, feel free to reach out to us."
+          content="Questions or feedback? — we’re here to support small carriers with simple, fast factoring solutions."
         />
-        <meta property="og:title" content="Contact" />
+
+        <meta property="og:title" content="Contact - In Cashy" />
         <meta
           property="og:description"
-          content="We're a startup and this product is still in development. If you have any questions or feedback, feel free to reach out to us."
+          content="Reach out to In Cashy — we're here to help small carriers with invoice factoring and support."
         />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.incashy.com/contact" />
         <meta property="og:image" content="https://www.incashy.com/og-image.png" />
-        <meta name="robots" content="index, follow" />
+        <meta property="og:url" content="https://www.incashy.com/contact" />
+        <meta property="og:type" content="website" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact - In Cashy" />
+        <meta
+          name="twitter:description"
+          content="Questions or feedback? Contact In Cashy — we’re here to help small carriers get paid fast with no hidden fees."
+        />
+        <meta name="twitter:image" content="https://www.incashy.com/og-image.png" />
+
+        <link rel="canonical" href="https://www.incashy.com/contact" />
       </Helmet>
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
