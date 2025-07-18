@@ -2,52 +2,66 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>In Cashy</title>
-	<!-- SEO Meta -->
-    <meta name="description" content="In Cashy offers simple factoring for small carriers with fixed-rate plans, no hidden fees, and fast payouts. Upload your documents and get paid fast." />
-    <meta name="keywords" content="In Cashy, factoring, freight factoring, trucking factoring, small carriers, invoice factoring, trucking financing, fast payouts, fixed rate, no hidden fees" />
-    <meta name="author" content="In Cashy Team" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- Open Graph -->
-    <meta property="og:title" content="In Cashy - Simple Factoring for Small Carriers" />
-    <meta property="og:description" content="Simple factoring with fixed rates and no hidden fees. Upload your docs and get paid fast." />
-    <meta property="og:image" content="https://incashy.com/og-image.png" />
-    <meta property="og:url" content="https://incashy.com" />
-    <meta property="og:type" content="website" />
+  <!-- 🎯 Primary Meta Tags -->
+  <title>InCashy – Simple Factoring for Small Trucking Carriers</title>
+  <meta name="description" content="InCashy ofrece factoring transparente para pequeñas empresas de transporte: tasas fijas, sin cargos ocultos y pagos rápidos." />
+  <meta name="keywords" content="factoring, transporte, financiamiento, tasas fijas, sin cargos ocultos, pagos rápidos" />
+  <meta name="author" content="Equipo InCashy" />
+  <meta name="robots" content="index, follow">
 
-	<!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="In Cashy - Simple Factoring for Small Carriers" />
-    <meta name="twitter:description" content="Simple factoring with fixed rates and no hidden fees. Upload your docs and get paid fast." />
-    <meta name="twitter:image" content="https://incashy.com/og-image.png" />
+  <!-- 🏷 Canonical -->
+  <link rel="canonical" href="https://incashy.com" />
 
-	<!-- Canonical -->
-    <link rel="canonical" href="https://incashy.com" />
+  <!-- 🍏 Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FinancialService",
-      "name": "InCashy",
-      "url": "https://incashy.com",
-      "logo": "https://incashy.com/logo.png",
-      "description": "Simple factoring for small carriers with fixed-rate plans, no hidden fees, and fast payouts.",
-      "serviceType": "Factoring Service",
-      "areaServed": {
-        "@type": "Country",
-        "name": "United States"
-      }
+  <!-- 📱 PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- 🔗 Open Graph -->
+  <meta property="og:title" content="InCashy – Simple Factoring for Small Trucking Carriers" />
+  <meta property="og:description" content="Factoring transparente con tasas fijas y pagos rápidos. Sin cargos ocultos." />
+  <meta property="og:image" content="https://incashy.com/og-image.png" />
+  <meta property="og:url" content="https://incashy.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="InCashy" />
+
+  <!-- 🐦 Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="InCashy – Simple Factoring for Small Trucking Carriers" />
+  <meta name="twitter:description" content="Factoring transparente con tasas fijas y pagos rápidos. Sin cargos ocultos." />
+  <meta name="twitter:image" content="https://incashy.com/og-image.png" />
+  <meta name="twitter:site" content="@InCashy"> <!-- Si tienen cuenta -->
+
+  <!-- 🧠 Structured Data (JSON‑LD) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FinancialService",
+    "name":"InCashy",
+    "url":"https://incashy.com",
+    "logo":"https://incashy.com/logo.png",
+    "description":"Factoring para pequeñas empresas de transporte con tasas fijas, sin cargos ocultos y pagos rápidos.",
+    "serviceType":"Factoring Service",
+    "areaServed":{"@type":"Country","name":"United States"},
+    "hasOfferCatalog":{
+      "@type":"OfferCatalog",
+      "name":"Planes de Factoring",
+      "itemListElement":[
+        {"@type":"Offer","name":"Plan Basic","description":"2 % por carga, pago en 2 días"},
+        {"@type":"Offer","name":"Plan Pro","description":"3 % por carga, pago el mismo día"},
+        {"@type":"Offer","name":"Plan Premium","description":"5 % por carga, pago instantáneo y tope de cuota"}
+      ]
     }
-    </script>
-
-	<!-- Manifest (for PWA) -->
-	<link rel="manifest" href="/manifest.json" />
+  }
+  </script>
 </head>
+
 
 <body>
 	<div id="root"></div>
