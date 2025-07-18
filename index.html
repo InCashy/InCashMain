@@ -29,37 +29,28 @@
 	<!-- Canonical -->
     <link rel="canonical" href="https://incashy.com" />
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FinancialService",
-      "name": "InCashy",
-      "url": "https://incashy.com",
-      "logo": "https://incashy.com/logo.png",
-      "description": "Simple factoring for small carriers with fixed-rate plans, no hidden fees, and fast payouts.",
-      "serviceType": "Factoring Service",
-      "areaServed": {
-        "@type": "Country",
-        "name": "United States"
-      }
+  <!-- 🧠 Structured Data (JSON‑LD) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FinancialService",
+    "name":"InCashy",
+    "url":"https://incashy.com",
+    "logo":"https://incashy.com/logo.png",
+    "description":"Factoring para pequeñas empresas de transporte con tasas fijas, sin cargos ocultos y pagos rápidos.",
+    "serviceType":"Factoring Service",
+    "areaServed":{"@type":"Country","name":"United States"},
+    "hasOfferCatalog":{
+      "@type":"OfferCatalog",
+      "name":"Planes de Factoring",
+      "itemListElement":[
+        {"@type":"Offer","name":"Plan Basic","description":"2 % por carga, pago en 2 días"},
+        {"@type":"Offer","name":"Plan Pro","description":"3 % por carga, pago el mismo día"},
+        {"@type":"Offer","name":"Plan Premium","description":"5 % por carga, pago instantáneo y tope de cuota"}
+      ]
     }
-    </script>
-
-	<!-- Manifest (for PWA) -->
-	<link rel="manifest" href="/manifest.json" />
-
-  <script type="text/javascript">
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
-      }(window.location))
-    </script>
+  }
+  </script>
 </head>
 
 <body>
