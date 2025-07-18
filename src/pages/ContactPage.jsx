@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { Helmet } from 'react-helmet-async';
 
 const ContactPage = () => {
   const { toast } = useToast();
@@ -65,6 +66,22 @@ const ContactPage = () => {
 
   return (
     <div className="bg-gradient-to-br from-gray-50 to-green-50 py-16 md:py-24">
+        <Helmet>
+        <title>Contact</title>
+        <meta
+          name="description"
+          content="We're a startup and this product is still in development. If you have any questions or feedback, feel free to reach out to us."
+        />
+        <meta property="og:title" content="Contact" />
+        <meta
+          property="og:description"
+          content="We're a startup and this product is still in development. If you have any questions or feedback, feel free to reach out to us."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.incashy.com/contact" />
+        <meta property="og:image" content="https://www.incashy.com/og-image.png" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
