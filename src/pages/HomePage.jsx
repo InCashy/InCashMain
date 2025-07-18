@@ -4,6 +4,7 @@ import PricingSection from '@/components/sections/PricingSection';
 import WhatWeOfferSection from '@/components/sections/WhatWeOfferSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import ReviewsSection from '@/components/sections/ReviewsSection';
+import { Helmet } from 'react-helmet-async';
 
 const HomePage = () => {
   return (
