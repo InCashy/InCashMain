@@ -29,7 +29,7 @@ const PricingPage = () => {
         />
         <meta name="twitter:image" content="https://www.incashy.com/og-image.png" />
 
-        <link rel="canonical" href="https://www.incashy.com/pricing" />
+        <link rel="canonical" href="/pricing" />
       </Helmet>
 
       <PricingSection displayTitle={true} showNoHiddenFeesBadge={true} />

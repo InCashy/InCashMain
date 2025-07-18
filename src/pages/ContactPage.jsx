@@ -90,7 +90,7 @@ const ContactPage = () => {
         />
         <meta name="twitter:image" content="https://www.incashy.com/og-image.png" />
 
-        <link rel="canonical" href="https://www.incashy.com/contact" />
+        <link rel="canonical" href="/contact" />
       </Helmet>
 
       <motion.div
