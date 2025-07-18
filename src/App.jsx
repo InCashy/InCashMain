@@ -9,6 +9,7 @@ import PricingPage from '@/pages/PricingPage';
 import ContactPage from '@/pages/ContactPage';
 import SignInPage from '@/pages/SignInPage';
 import RegisterPage from '@/pages/RegisterPage';
+import NotFoundPage from '@/pages/NotFoundPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="*" element={<NotFoundPage />} /> {/* Fallback to HomePage for unknown routes */}
         </Routes>
       </main>
       <Footer />
