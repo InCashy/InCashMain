@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react';
 import { createLogger, defineConfig } from 'vite';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { VitePluginPrerender } from 'vite-plugin-prerender-spa';
 
 const isDev = process.env.NODE_ENV !== 'production';
 
@@ -32,11 +31,7 @@ export default defineConfig({
 	customLogger: logger,
 	plugins: [
 		...(isDev ? [inlineEditPlugin(), editModeDevPlugin()] : []),
-		react(),
-		VitePluginPrerender({
-			staticDir: 'dist',
-			routes: ['/', '/contact', '/pricing'] // Add all the routes you want crawled
-		})
+		react()
 	],
 	server: {
 		cors: true,
