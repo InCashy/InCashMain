@@ -23,6 +23,8 @@
     "@radix-ui/react-tabs": "^1.0.4",
     "@radix-ui/react-toast": "^1.1.5",
     "@types/react-router-dom": "^5.3.3",
+    "@vercel/analytics": "^1.5.0",
+    "analytics": "github:vercel/analytics",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.4",
