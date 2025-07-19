@@ -10,9 +10,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <HelmetProvider>
       <BrowserRouter>
-        <Analytics>
+          <Analytics />
           <App />
-        </Analytics>
       </BrowserRouter>
     </HelmetProvider>
   </React.StrictMode>
