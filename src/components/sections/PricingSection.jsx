@@ -47,15 +47,13 @@ const PricingCard = ({ plan, delay, isPro = false }) => {
           </li>
         ))}
       </ul>
-      <Link to="/register" className="w-full mt-auto">
-        <Button
+      <Button
           variant={isPro ? "default" : "outline"}
           className={`w-full ${isPro ? 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700' : 'bg-gray-800 text-white hover:bg-gray-700 hover:text-white border-gray-800'}`}
-          onClick={showToast}
+          onClick={() => window.location.href = 'https://app.incashy.com'}
         >
           Join as {plan.name}
         </Button>
-      </Link>
     </motion.div>
   );
 };
