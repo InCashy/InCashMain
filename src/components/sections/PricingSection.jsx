@@ -16,9 +16,9 @@ const PricingCard = ({ plan, delay, isPro = false }) => {
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 30 }}
-      animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
+      animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ delay }}
       onViewportEnter={() => setHasAnimated(true)}
       style={{ willChange: 'transform, opacity' }}
@@ -38,8 +38,8 @@ const PricingCard = ({ plan, delay, isPro = false }) => {
         ))}
       </ul>
       <Link to="/register" className="w-full mt-auto">
-        <Button 
-          variant={isPro ? "default" : "outline"} 
+        <Button
+          variant={isPro ? "default" : "outline"}
           className={`w-full ${isPro ? 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700' : 'bg-gray-800 text-white hover:bg-gray-700 hover:text-white border-gray-800'}`}
         >
           Join as {plan.name}
@@ -51,9 +51,9 @@ const PricingCard = ({ plan, delay, isPro = false }) => {
 
 const NoHiddenFeesBadge = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
-  
+
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
       onViewportEnter={() => setHasAnimated(true)}
@@ -70,20 +70,20 @@ const NoHiddenFeesBadge = () => {
 
 const PricingSection = ({ displayTitle = true, showNoHiddenFeesBadge = true }) => {
   const plans = [
-    { 
-      name: 'Basic', 
-      price: '%2', 
+    {
+      name: 'Basic',
+      price: '%2',
       features: ['Two days pay', 'No Broker Alerts', 'Customer Support', 'Recourse', 'We Charge $25 Minimum']
     },
-    { 
-      name: 'Pro', 
-      price: '%3', 
+    {
+      name: 'Pro',
+      price: '%3',
       features: ['Same day pay', 'Broker Alerts', 'Customer Support', 'Non-Recourse', 'We Charge $10 Minimum'],
       isPro: true
     },
-    { 
-      name: 'Premium', 
-      price: '%5', 
+    {
+      name: 'Premium',
+      price: '%5',
       features: ['Instant pay', 'Broker Alerts', 'Customer Support', 'Non-Recourse', 'No Minimum Always 5%', 'We Charge $100 Max', 'High Priority']
     }
   ];
