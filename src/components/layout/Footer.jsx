@@ -1,6 +1,6 @@
 import React from 'react';
 import { useToast } from '@/components/ui/use-toast';
-import { DollarSign, Twitter, Instagram, Youtube, Linkedin } from 'lucide-react';
+import { Twitter, Instagram, Youtube, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const { toast } = useToast();
@@ -22,7 +22,7 @@ const Footer = () => {
             <span className="text-xl font-bold">InCashy</span>
           </div>
 
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 mb-6 md:mb-0">
             <button onClick={showToast} className="p-2 hover:bg-gray-800 rounded-lg transition-colors">
               <Twitter className="w-5 h-5" />
             </button>
@@ -36,6 +36,19 @@ const Footer = () => {
               <Linkedin className="w-5 h-5" />
             </button>
           </div>
+        </div>
+
+        {/* Links section */}
+        <div className="flex justify-center space-x-6 text-sm text-gray-400">
+          <a href="/terms-and-conditions" className="hover:text-white transition-colors">
+            Terms and Conditions
+          </a>
+          <a href="/cookies-policy" className="hover:text-white transition-colors">
+            Cookies Policy
+          </a>
+          <a href="/privacy-policy" className="hover:text-white transition-colors">
+            Privacy Policy
+          </a>
         </div>
       </div>
     </footer>
