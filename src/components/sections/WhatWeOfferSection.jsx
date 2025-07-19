@@ -39,7 +39,7 @@ const WhatWeOfferSection = () => {
             <img  
               alt="Truck with money and checkmark illustration"
               className="w-80 h-64 object-contain"
-             src="https://storage.googleapis.com/hostinger-horizons-assets-prod/3617ea5a-eae1-45eb-99f3-be8cf107e035/4c18c59904e4cfc8b9fd73473613ed04.png" />
+             src="truckFallingMoney.png" />
           </motion.div>
         </div>
       </div>
