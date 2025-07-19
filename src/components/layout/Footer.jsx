@@ -11,45 +11,60 @@ const Footer = () => {
     });
   };
 
-  const logoUrl = "https://storage.googleapis.com/hostinger-horizons-assets-prod/3617ea5a-eae1-45eb-99f3-be8cf107e035/eaf51401e2e4157b5a48dfe673a32850.png";
-  
-  return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center space-x-2 mb-6 md:mb-0">
-            <img src={logoUrl} alt="InCashy Logo" className="w-8 h-8 rounded-lg object-contain" />
-            <span className="text-xl font-bold">InCashy</span>
-          </div>
+  const logoUrl =
+    "https://storage.googleapis.com/hostinger-horizons-assets-prod/3617ea5a-eae1-45eb-99f3-be8cf107e035/eaf51401e2e4157b5a48dfe673a32850.png";
 
-          <div className="flex space-x-4 mb-6 md:mb-0">
-            <button onClick={showToast} className="p-2 hover:bg-gray-800 rounded-lg transition-colors">
-              <Twitter className="w-5 h-5" />
-            </button>
-            <button onClick={showToast} className="p-2 hover:bg-gray-800 rounded-lg transition-colors">
-              <Instagram className="w-5 h-5" />
-            </button>
-            <button onClick={showToast} className="p-2 hover:bg-gray-800 rounded-lg transition-colors">
-              <Youtube className="w-5 h-5" />
-            </button>
-            <button onClick={showToast} className="p-2 hover:bg-gray-800 rounded-lg transition-colors">
-              <Linkedin className="w-5 h-5" />
-            </button>
+  return (
+    <footer className="bg-gray-900 text-white py-12 px-4">
+      <div className="max-w-7xl mx-auto flex flex-col space-y-10 md:space-y-0 md:flex-row md:justify-between md:items-start">
+        {/* Logo + Name */}
+        <div className="flex flex-col items-center md:items-start space-y-4">
+          <div className="flex items-center space-x-3">
+            <img src={logoUrl} alt="InCashy Logo" className="w-10 h-10 rounded-lg object-contain" />
+            <span className="text-2xl font-semibold tracking-tight">InCashy</span>
           </div>
+          <p className="text-sm text-gray-400 max-w-xs text-center md:text-left">
+            Powering fast, secure freight factoring for today's carriers.
+          </p>
         </div>
 
-        {/* Links section */}
-        <div className="flex justify-center space-x-6 text-sm text-gray-400">
-          <a href="/terms-and-conditions" className="hover:text-white transition-colors">
-            Terms and Conditions
+        {/* Links */}
+        <div className="flex flex-col items-center md:items-start space-y-3">
+          <h4 className="text-sm font-semibold text-gray-300 uppercase tracking-wide">Legal</h4>
+          <a href="/terms-and-conditions" className="text-gray-400 hover:text-white transition">
+            Terms & Conditions
           </a>
-          <a href="/cookies-policy" className="hover:text-white transition-colors">
+          <a href="/cookies-policy" className="text-gray-400 hover:text-white transition">
             Cookies Policy
           </a>
-          <a href="/privacy-policy" className="hover:text-white transition-colors">
+          <a href="/privacy-policy" className="text-gray-400 hover:text-white transition">
             Privacy Policy
           </a>
         </div>
+
+        {/* Social Icons */}
+        <div className="flex flex-col items-center md:items-end space-y-3">
+          <h4 className="text-sm font-semibold text-gray-300 uppercase tracking-wide">Follow Us</h4>
+          <div className="flex space-x-3">
+            <button onClick={showToast} className="p-2 rounded-md hover:bg-gray-800 transition">
+              <Twitter className="w-5 h-5 text-white" />
+            </button>
+            <button onClick={showToast} className="p-2 rounded-md hover:bg-gray-800 transition">
+              <Instagram className="w-5 h-5 text-white" />
+            </button>
+            <button onClick={showToast} className="p-2 rounded-md hover:bg-gray-800 transition">
+              <Youtube className="w-5 h-5 text-white" />
+            </button>
+            <button onClick={showToast} className="p-2 rounded-md hover:bg-gray-800 transition">
+              <Linkedin className="w-5 h-5 text-white" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Divider and Bottom Line */}
+      <div className="border-t border-gray-800 mt-10 pt-6 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} InCashy. All rights reserved.
       </div>
     </footer>
   );

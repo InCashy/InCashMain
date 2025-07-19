@@ -29,6 +29,13 @@
 * {
   border-color: hsl(var(--border));
 }
+/* Global text selection effect */
+::selection {
+  background: #149844;
+  color: #ffffff;
+}
+/* #22c55e */
+/* #111827 */
 
 body {
   background-color: hsl(var(--background));
