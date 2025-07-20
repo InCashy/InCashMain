@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
-import { Check } from 'lucide-react';
+import { Check, X, Minus } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -32,28 +32,53 @@ const PricingCard = ({ plan, delay, isPro = false }) => {
         backfaceVisibility: 'hidden',
         WebkitBackfaceVisibility: 'hidden',
       }}
-      className={`pricing-card rounded-2xl p-8 border flex flex-col ${isPro ? 'bg-gray-900 border-gray-800 relative' : 'bg-white border-gray-200'}`}
+      className={`pricing-card rounded-2xl p-8 border flex flex-col ${
+        isPro ? 'bg-gray-900 border-gray-800 relative' : 'bg-white border-gray-200'
+      }`}
     >
       <h3 className={`text-xl font-semibold mb-4 ${isPro ? 'text-white' : 'text-gray-900'}`}>{plan.name}</h3>
       <div className="mb-6 text-center">
         <span className={`text-4xl font-bold ${isPro ? 'text-white' : 'text-gray-900'}`}>{plan.price}</span>
         <span className={`${isPro ? 'text-gray-300' : 'text-gray-600'} ml-1`}>/load</span>
       </div>
+
       <ul className="space-y-3 mb-8 flex-grow">
-        {plan.features.map((feature, index) => (
-          <li key={index} className={`flex items-center text-sm ${isPro ? 'text-gray-300' : 'text-gray-600'}`}>
-            <Check className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-            {feature}
-          </li>
-        ))}
+        {plan.items.map((item, index) => {
+          const { type, text } = item;
+          let icon = null;
+          let textColor = '';
+
+          if (type === 'feature') {
+            icon = <Check className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />;
+            textColor = isPro ? 'text-gray-300' : 'text-gray-600';
+          } else if (type === 'con') {
+            icon = <X className="w-4 h-4 text-red-500 mr-3 flex-shrink-0" />;
+            textColor = isPro ? 'text-red-400' : 'text-red-600';
+          } else if (type === 'neutral') {
+            icon = <Minus className="w-4 h-4 text-gray-400 mr-3 flex-shrink-0" />;
+            textColor = isPro ? 'text-gray-400' : 'text-gray-500';
+          }
+
+          return (
+            <li key={index} className={`flex items-center text-sm ${textColor}`}>
+              {icon}
+              {text}
+            </li>
+          );
+        })}
       </ul>
+
       <Button
-          variant={isPro ? "default" : "outline"}
-          className={`w-full ${isPro ? 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700' : 'bg-gray-800 text-white hover:bg-gray-700 hover:text-white border-gray-800'}`}
-          onClick={() => window.location.href = 'https://app.incashy.com'}
-        >
-          Join as {plan.name}
-        </Button>
+        variant={isPro ? 'default' : 'outline'}
+        className={`w-full ${
+          isPro
+            ? 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700'
+            : 'bg-gray-800 text-white hover:bg-gray-700 hover:text-white border-gray-800'
+        }`}
+        onClick={() => (window.location.href = 'https://app.incashy.com')}
+      >
+        Join as {plan.name}
+      </Button>
     </motion.div>
   );
 };
@@ -85,19 +110,38 @@ const PricingSection = ({ displayTitle = true, showNoHiddenFeesBadge = true }) =
     {
       name: 'Basic',
       price: '%2',
-      features: ['Two days pay', 'No Broker Alerts', 'Customer Support', 'Recourse', 'We Charge $25 Minimum']
+      items: [
+        { type: 'neutral', text: '72hrs pay' },
+        { type: 'con', text: 'Recourse' },
+        { type: 'neutral', text: '$25 Fee minimum per invoice' },
+        { type: 'con', text: 'No invoice creator' },
+        { type: 'feature', text: 'Customer support' },
+
+      ],
     },
     {
       name: 'Pro',
       price: '%3',
-      features: ['Same day pay', 'Broker Alerts', 'Customer Support', 'Non-Recourse', 'We Charge $10 Minimum'],
-      isPro: true
+      items: [
+        { type: 'neutral', text: '48hrs pay' },
+        { type: 'feature', text: 'Non-Recourse' },
+        { type: 'neutral', text: '$10 Fee minimum per invoice' },
+        { type: 'feature', text: 'Invoice creator' },
+        { type: 'feature', text: 'Customer support' },
+      ],
+      isPro: true,
     },
     {
       name: 'Premium',
-      price: '%5',
-      features: ['Instant pay', 'Broker Alerts', 'Customer Support', 'Non-Recourse', 'No Minimum Always 5%', 'We Charge $100 Max', 'High Priority']
-    }
+      price: '%4',
+      items: [
+        { type: 'feature', text: 'Same day pay' },
+        { type: 'feature', text: 'Non-Recourse' },
+        { type: 'feature', text: '$100 Fee maximum per invoice' },
+        { type: 'feature', text: 'Invoice auto-creator' },
+        { type: 'feature', text: 'Customer support' },
+      ],
+    },
   ];
 
   return (
