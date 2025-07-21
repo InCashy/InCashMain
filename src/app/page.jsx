@@ -6,6 +6,12 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <div>HomePage</div>
+    <>
+        <div>HomePage</div>
+    <a href="/contact">Contact</a>
+    <br />
+    <a href="/pricing">Pricing</a>
+    </>
+
   );
 }

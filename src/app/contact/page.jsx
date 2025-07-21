@@ -2,7 +2,7 @@ import React from 'react'
 
 export const metadata = {
   title: "Contact - InCashy",
-  description: "Get paid fast for your freight invoices with InCashy.",
+  description: "Get in contact",
 };
 
 const ContactPage = () => {
