@@ -1,7 +1,8 @@
+"use client";
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link  from 'next/link';
 
 const HeroSection = () => {
   return (
@@ -32,7 +33,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
-            <Link to="/pricing">
+            <Link href="/pricing">
               <Button 
                 variant="outline" 
                 className="px-8 py-3 text-lg border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-100"

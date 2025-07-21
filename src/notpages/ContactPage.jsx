@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,48 +10,33 @@ import { Helmet } from 'react-helmet-async';
 
 const ContactPage = () => {
   const { toast } = useToast();
-
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // ✅ INIT emailjs once when component mounts
   useEffect(() => {
-    emailjs.init('zEYJuyKXun7c-AHgC'); // <-- this is your public key
+    emailjs.init('zEYJuyKXun7c-AHgC');
   }, []);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [id]: value }));
+    setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const templateParams = {
-      name: formData.name,
-      email: formData.email,
-      subject: formData.subject,
-      message: formData.message,
-    };
-
     try {
-      const result = await emailjs.send(
-        'service_xbkkvv9',      // ✅ your service ID
-        'template_lq99jih',     // ✅ your template ID
-        templateParams
-      );
-
+      await emailjs.send('service_xbkkvv9', 'template_lq99jih', formData);
       toast({
         title: 'Message Sent! 🎉',
         description: 'Thanks for reaching out! Your message was sent successfully.',
       });
-
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       toast({
@@ -68,28 +53,16 @@ const ContactPage = () => {
     <div className="bg-gradient-to-br from-gray-50 to-green-50 py-16 md:py-24">
       <Helmet>
         <title>Contact</title>
-        <meta
-          name="description"
-          content="Questions or feedback? — we’re here to support small carriers with simple, fast factoring solutions."
-        />
-
+        <meta name="description" content="Questions or feedback? — we’re here to support small carriers with simple, fast factoring solutions." />
         <meta property="og:title" content="Contact - In Cashy" />
-        <meta
-          property="og:description"
-          content="Reach out to In Cashy — we're here to help small carriers with invoice factoring and support."
-        />
+        <meta property="og:description" content="Reach out to In Cashy — we're here to help small carriers with invoice factoring and support." />
         <meta property="og:image" content="https://www.incashy.com/og-image.png" />
         <meta property="og:url" content="https://www.incashy.com/contact" />
         <meta property="og:type" content="website" />
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Contact - In Cashy" />
-        <meta
-          name="twitter:description"
-          content="Questions or feedback? Contact In Cashy — we’re here to help small carriers get paid fast with no hidden fees."
-        />
+        <meta name="twitter:description" content="Questions or feedback? Contact In Cashy — we’re here to help small carriers get paid fast with no hidden fees." />
         <meta name="twitter:image" content="https://www.incashy.com/og-image.png" />
-
         <link rel="canonical" href="/contact" />
       </Helmet>
 
@@ -100,62 +73,57 @@ const ContactPage = () => {
         className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Get in Touch
-          </h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Get in Touch</h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             We're a startup, this product is still in development. If you have any questions, feedback, or just want to say hello, feel free to reach out to us using the form below.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 bg-white p-8 md:p-12 rounded-xl shadow-2xl">
-          <div>
+          <div className="space-y-6">
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">Contact Information</h2>
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-green-600" />
-                </div>
+            {[{
+              icon: <Mail className="w-5 h-5 text-green-600" />,
+              title: 'Email Us',
+              content: <a href="mailto:support@incashy.com" className="text-green-600 hover:text-green-700 transition-colors">angeldomlu@gmail.com</a>
+            }, {
+              icon: <Phone className="w-5 h-5 text-green-600" />,
+              title: 'Call Us',
+              content: <a href="tel:+1234567890" className="text-green-600 hover:text-green-700 transition-colors">No Phone Available</a>
+            }, {
+              icon: <MapPin className="w-5 h-5 text-green-600" />,
+              title: 'Our Office',
+              content: <p className="text-gray-600">123 Trucker Lane, Suite 456<br />Roadway City, RC 78901</p>
+            }].map(({ icon, title, content }, idx) => (
+              <div key={idx} className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">{icon}</div>
                 <div>
-                  <p className="text-lg font-medium text-gray-700">Email Us</p>
-                  <a href="mailto:support@incashy.com" className="text-green-600 hover:text-green-700 transition-colors">angeldomlu@gmail.com</a>
+                  <p className="text-lg font-medium text-gray-700">{title}</p>
+                  {content}
                 </div>
               </div>
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-green-600" />
-                </div>
-                <div>
-                  <p className="text-lg font-medium text-gray-700">Call Us</p>
-                  <a href="tel:+1234567890" className="text-green-600 hover:text-green-700 transition-colors">No Phone Available</a>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-green-600" />
-                </div>
-                <div>
-                  <p className="text-lg font-medium text-gray-700">Our Office</p>
-                  <p className="text-gray-600">123 Trucker Lane, Suite 456<br />Roadway City, RC 78901</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">Send us a Message</h2>
-            <div>
-              <Label htmlFor="name" className="text-gray-700">Full Name</Label>
-              <Input type="text" id="name" placeholder="John Doe" className="mt-1" required value={formData.name} onChange={handleChange} disabled={isSubmitting} />
-            </div>
-            <div>
-              <Label htmlFor="email" className="text-gray-700">Email Address</Label>
-              <Input type="email" id="email" placeholder="you@example.com" className="mt-1" required value={formData.email} onChange={handleChange} disabled={isSubmitting} />
-            </div>
-            <div>
-              <Label htmlFor="subject" className="text-gray-700">Subject</Label>
-              <Input type="text" id="subject" placeholder="Question about pricing" className="mt-1" required value={formData.subject} onChange={handleChange} disabled={isSubmitting} />
-            </div>
+            {['name', 'email', 'subject'].map((field) => (
+              <div key={field}>
+                <Label htmlFor={field} className="text-gray-700">
+                  {field.charAt(0).toUpperCase() + field.slice(1)}
+                </Label>
+                <Input
+                  type={field === 'email' ? 'email' : 'text'}
+                  id={field}
+                  placeholder={field === 'name' ? 'John Doe' : field === 'email' ? 'you@example.com' : 'Question about pricing'}
+                  className="mt-1"
+                  required
+                  value={formData[field]}
+                  onChange={handleChange}
+                  disabled={isSubmitting}
+                />
+              </div>
+            ))}
             <div>
               <Label htmlFor="message" className="text-gray-700">Message</Label>
               <textarea
@@ -167,7 +135,7 @@ const ContactPage = () => {
                 value={formData.message}
                 onChange={handleChange}
                 disabled={isSubmitting}
-              ></textarea>
+              />
             </div>
             <Button
               type="submit"
@@ -178,7 +146,7 @@ const ContactPage = () => {
                 <>
                   <motion.div
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                     className="w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2"
                   />
                   Sending...
