@@ -1,9 +1,13 @@
 import React from 'react'
 
 export const metadata = {
-    title: "Privacy Policy",
-    description: "Read In Cashy’s Privacy Policy to understand your rights, responsibilities, and the rules governing the use of our trucking factoring platform.",
+  title: "Privacy Policy",
+  description: "Read InCashy’s Privacy Policy to understand how we collect, use, and protect your personal information on our trucking factoring platform.",
+  alternates: {
+    canonical: "https://www.incashy.com/privacy-policy",
+  },
 };
+
 const termsAndConditions = () => {
   return (
     <div className="p-8 max-w-4xl mx-auto text-gray-800">

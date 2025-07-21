@@ -30,8 +30,10 @@ export const metadata = {
   },
   icons: {
     icon: "/favicon.ico",
-    canonical: "https://www.incashy.com",
   },
+  alternates: {
+    canonical: "https://www.incashy.com",
+  }
 };
 
 export default function HomePage() {
