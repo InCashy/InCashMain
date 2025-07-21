@@ -1,8 +1,11 @@
 import React from 'react'
 
 export const metadata = {
-    title: "Cookies Policy",
-    description: "Read In Cashy’s Cookies Policy to understand your rights, responsibilities, and the rules governing the use of our trucking factoring platform.",
+  title: "Cookies Policy",
+  description: "Learn how InCashy uses cookies to enhance your experience, protect your data, and comply with privacy regulations on our trucking factoring platform.",
+  alternates: {
+    canonical: "https://www.incashy.com/cookies-policy",
+  },
 };
 const termsAndConditions = () => {
   return (
