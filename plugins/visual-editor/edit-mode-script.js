@@ -1,5 +1,6 @@
 import { POPUP_STYLES, getPopupHTMLTemplate } from './plugins/visual-editor/visual-editor-config.js';
 
+
 const PLUGIN_APPLY_EDIT_API_URL = '/api/apply-edit';
 
 const ALLOWED_PARENT_ORIGINS = [
