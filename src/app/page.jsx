@@ -1,9 +1,11 @@
-import React from 'react'
+// app/page.jsx
+export const metadata = {
+  title: "InCashy - Fast Freight Factoring",
+  description: "Get paid fast for your freight invoices with InCashy.",
+};
 
-const HomePage = () => {
+export default function HomePage() {
   return (
     <div>HomePage</div>
-  )
+  );
 }
-
-export default HomePage
