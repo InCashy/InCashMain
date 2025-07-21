@@ -1,15 +1,17 @@
+"use client";
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Header = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   const handleNavigation = (path) => {
-    navigate(path);
+    router.push(path);
     setMobileMenuOpen(false);
   };
 
@@ -19,30 +21,34 @@ const Header = () => {
     <header className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2">
             <img src={logoUrl} alt="InCashy Logo" className="w-8 h-8 rounded-lg object-contain" />
             <span className="text-xl font-bold text-gray-900">InCashy</span>
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">
-
+            {/* Add nav links here if needed */}
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Link to="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <Link href="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors">
               Pricing
             </Link>
-            <Link to="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <Link href="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
               Contact
             </Link>
-            <Button onClick={() => window.location.href = 'https://app.incashy.com'} className="justify-start bg-gradient-to-r from-green-500 to-green-500 hover:from-green-600 hover:to-green-600">
-              Log In
-            </Button>
+            <Link href="https://app.incashy.com" className="text-gray-600 hover:text-gray-900 transition-colors">
+              <Button className="justify-start bg-gradient-to-r from-green-500 to-green-500 hover:from-green-600 hover:to-green-600">
+                Log In
+              </Button>
+            </Link>
+
           </div>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2"
+            aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -55,17 +61,21 @@ const Header = () => {
             className="md:hidden py-4 border-t border-gray-200"
           >
             <div className="flex flex-col space-y-4">
-              <button onClick={() => handleNavigation('/pricing')} className="text-left text-gray-600 hover:text-gray-900">
+              <Link href="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors">
                 Pricing
-              </button>
-              <button onClick={() => handleNavigation('/contact')} className="text-left text-gray-600 hover:text-gray-900">
+              </Link>
+              <Link href="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
                 Contact
-              </button>
+              </Link>
               <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200">
-                <Button onClick={() => window.location.href = 'https://app.incashy.com'} className="justify-start bg-gradient-to-r bg-gradient-to-r from-green-500 to-green-500 hover:from-green-600 hover:to-green-600">
-                  Log In
-                </Button>
+                <Link href="https://app.incashy.com" className="text-gray-600 hover:text-gray-900 transition-colors">
+                  <Button className="w-full bg-gradient-to-r from-green-500 to-green-500 hover:from-green-600 hover:to-green-600">
+                    Log In
+                  </Button>
+
+                </Link>
               </div>
+
             </div>
           </motion.div>
         )}

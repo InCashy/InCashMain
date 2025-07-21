@@ -1,14 +1,13 @@
 import React from 'react';
-import { useToast } from '@/components/ui/use-toast';
 import { Twitter, Instagram, Youtube, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const { toast } = useToast();
 
   const showToast = () => {
-    toast({
-      title: "🚧 This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀"
-    });
+    //toast({
+      //title: "🚧 This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀"
+    //});
   };
 
   const logoUrl =
@@ -46,16 +45,16 @@ const Footer = () => {
         <div className="flex flex-col items-center md:items-end space-y-3">
           <h4 className="text-sm font-semibold text-gray-300 uppercase tracking-wide">Follow Us</h4>
           <div className="flex space-x-3">
-            <button onClick={showToast} className="p-2 rounded-md hover:bg-gray-800 transition">
+            <button /*onClick={showToast}*/ className="p-2 rounded-md hover:bg-gray-800 transition">
               <Twitter className="w-5 h-5 text-white" />
             </button>
-            <button onClick={showToast} className="p-2 rounded-md hover:bg-gray-800 transition">
+            <button /*onClick={showToast}*/ className="p-2 rounded-md hover:bg-gray-800 transition">
               <Instagram className="w-5 h-5 text-white" />
             </button>
-            <button onClick={showToast} className="p-2 rounded-md hover:bg-gray-800 transition">
+            <button /*onClick={showToast}*/ className="p-2 rounded-md hover:bg-gray-800 transition">
               <Youtube className="w-5 h-5 text-white" />
             </button>
-            <button onClick={showToast} className="p-2 rounded-md hover:bg-gray-800 transition">
+            <button /*onClick={showToast}*/ className="p-2 rounded-md hover:bg-gray-800 transition">
               <Linkedin className="w-5 h-5 text-white" />
             </button>
           </div>

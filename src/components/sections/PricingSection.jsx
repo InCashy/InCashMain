@@ -1,9 +1,10 @@
+"use client";
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
+//import { useToast } from '@/components/ui/use-toast';
 import { Check, X, Minus } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link } from 'next/link';
 
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 10 },
@@ -11,13 +12,6 @@ const fadeUpVariant = {
 };
 
 const PricingCard = ({ plan, delay, isPro = false }) => {
-  const { toast } = useToast();
-
-  const showToast = () => {
-    toast({
-      title: "🚧 This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀"
-    });
-  };
 
   return (
     <motion.div
