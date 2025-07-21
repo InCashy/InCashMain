@@ -1,5 +1,5 @@
 
+User-agent: *
 Allow: /
 Sitemap: https://www.incashy.com/sitemap.xml
-User-agent: *
 Disallow:
