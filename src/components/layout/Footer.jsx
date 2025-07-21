@@ -1,20 +1,23 @@
+"use client";
 import React from 'react';
 import { Twitter, Instagram, Youtube, Linkedin } from 'lucide-react';
+import { Zoom, ToastContainer, toast } from 'react-toastify';
 
 const Footer = () => {
-  //const { toast } = useToast();
 
-  const showToast = () => {
-    //toast({
-      //title: "🚧 This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀"
-    //});
-  };
+   const noFeature = () => toast.warning("This feature isn't implemented but don't worry! We're working on it! 🚀");
 
   const logoUrl =
     "https://storage.googleapis.com/hostinger-horizons-assets-prod/3617ea5a-eae1-45eb-99f3-be8cf107e035/eaf51401e2e4157b5a48dfe673a32850.png";
 
   return (
     <footer className="bg-gray-900 text-white py-12 px-4">
+      <ToastContainer 
+        autoClose={2000}
+        position="bottom-right"
+        theme="colored"
+        transition={Zoom}
+        />
       <div className="max-w-7xl mx-auto flex flex-col space-y-10 md:space-y-0 md:flex-row md:justify-between md:items-start">
         {/* Logo + Name */}
         <div className="flex flex-col items-center md:items-start space-y-4">
@@ -45,16 +48,16 @@ const Footer = () => {
         <div className="flex flex-col items-center md:items-end space-y-3">
           <h4 className="text-sm font-semibold text-gray-300 uppercase tracking-wide">Follow Us</h4>
           <div className="flex space-x-3">
-            <button /*onClick={showToast}*/ className="p-2 rounded-md hover:bg-gray-800 transition">
+            <button onClick={noFeature} className="p-2 rounded-md hover:bg-gray-800 transition">
               <Twitter className="w-5 h-5 text-white" />
             </button>
-            <button /*onClick={showToast}*/ className="p-2 rounded-md hover:bg-gray-800 transition">
+            <button onClick={noFeature} className="p-2 rounded-md hover:bg-gray-800 transition">
               <Instagram className="w-5 h-5 text-white" />
             </button>
-            <button /*onClick={showToast}*/ className="p-2 rounded-md hover:bg-gray-800 transition">
+            <button onClick={noFeature} className="p-2 rounded-md hover:bg-gray-800 transition">
               <Youtube className="w-5 h-5 text-white" />
             </button>
-            <button /*onClick={showToast}*/ className="p-2 rounded-md hover:bg-gray-800 transition">
+            <button onClick={noFeature} className="p-2 rounded-md hover:bg-gray-800 transition">
               <Linkedin className="w-5 h-5 text-white" />
             </button>
           </div>

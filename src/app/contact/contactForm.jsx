@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { ToastContainer, toast, Zoom } from 'react-toastify';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -33,9 +34,11 @@ const ContactPage = () => {
 
     try {
       await emailjs.send('service_xbkkvv9', 'template_lq99jih', formData);
+      toast.success("Message sent successfully!"); // ✅ success toast
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       console.error('EmailJS Error:', error);
+      toast.error("Failed to send message. Please try again."); // ✅ error toast
     } finally {
       setIsSubmitting(false);
     }
@@ -43,6 +46,12 @@ const ContactPage = () => {
 
   return (
     <div className="bg-gradient-to-br from-gray-50 to-green-50 py-16 md:py-24">
+      <ToastContainer
+        autoClose={2000}
+        position="bottom-right"
+        theme="colored"
+        transition={Zoom}
+      />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -114,8 +123,8 @@ const ContactPage = () => {
                   id={field}
                   placeholder={
                     field === 'name' ? 'John Doe' :
-                    field === 'email' ? 'you@example.com' :
-                    'Question about pricing'
+                      field === 'email' ? 'you@example.com' :
+                        'Question about pricing'
                   }
                   className="mt-1"
                   required
