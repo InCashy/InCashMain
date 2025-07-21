@@ -2,7 +2,7 @@ import React from 'react';
 import { Twitter, Instagram, Youtube, Linkedin } from 'lucide-react';
 
 const Footer = () => {
-  const { toast } = useToast();
+  //const { toast } = useToast();
 
   const showToast = () => {
     //toast({

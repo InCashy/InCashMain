@@ -1,13 +1,14 @@
 import React from 'react'
+import ContactForm from './contactForm';
 
 export const metadata = {
-  title: "Contact - InCashy",
-  description: "Get in contact",
+  title: "Contact",
+  description: "Get in touch.",
 };
 
 const ContactPage = () => {
   return (
-    <div>ContactPage</div>
+    <ContactForm/>
   )
 }
 
