@@ -8,7 +8,7 @@ const Footer = () => {
    const noFeature = () => toast.warning("This feature isn't implemented but don't worry! We're working on it! 🚀");
 
   const logoUrl =
-    "https://storage.googleapis.com/hostinger-horizons-assets-prod/3617ea5a-eae1-45eb-99f3-be8cf107e035/eaf51401e2e4157b5a48dfe673a32850.png";
+    "logo.png";
 
   return (
     <footer className="bg-gray-900 text-white py-12 px-4">

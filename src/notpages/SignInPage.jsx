@@ -16,7 +16,7 @@ const SignInPage = () => {
        window.location.href = 'https://app.incashy.com';
   };
   
-const logoUrl = "https://storage.googleapis.com/hostinger-horizons-assets-prod/3617ea5a-eae1-45eb-99f3-be8cf107e035/eaf51401e2e4157b5a48dfe673a32850.png";
+const logoUrl = "logo.png";
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-green-100 py-12 px-4 sm:px-6 lg:px-8">

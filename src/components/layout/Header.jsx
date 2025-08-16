@@ -15,7 +15,7 @@ const Header = () => {
     setMobileMenuOpen(false);
   };
 
-  const logoUrl = "https://storage.googleapis.com/hostinger-horizons-assets-prod/3617ea5a-eae1-45eb-99f3-be8cf107e035/eaf51401e2e4157b5a48dfe673a32850.png";
+  const logoUrl = "logo.png";
 
   return (
     <header className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">

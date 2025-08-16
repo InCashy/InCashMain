@@ -59,7 +59,7 @@ const HeroSection = () => {
               <img  
                 alt="3D truck with dollar signs illustration"
                 className="w-[28rem] h-auto md:w-[36rem] lg:w-[42rem] object-contain"
-               src="https://storage.googleapis.com/hostinger-horizons-assets-prod/3617ea5a-eae1-45eb-99f3-be8cf107e035/3467ad06164202ef5e0a0965feb3f957.png" />
+               src="TruckMoneOnSide.png" />
             </div>
           </motion.div>
         </div>
